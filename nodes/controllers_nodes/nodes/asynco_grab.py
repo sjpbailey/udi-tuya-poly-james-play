@@ -113,7 +113,7 @@ scan_results = tinytuya.deviceScan()
 for value in scan_results.values():
     ip = value['ip']
     device_id = value['gwId']
-    key = devices_list['key']
+    key = value['key']
     print(key)
 
     if len(device_id) > 10:
