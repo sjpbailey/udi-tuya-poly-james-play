@@ -1,0 +1,29 @@
+{
+    "timestamp": 1647643014.601438,
+    "devices": [
+        {
+            "name": "Backyard Flood Light",
+            "ip": "192.168.86.6",
+            "ver": "3.3",
+            "id": "ebd85577fae5b9605cpvpi",
+            "key": "fef7d468e4d01d28",
+            "dps": "20"
+        },
+        {
+            "name": "Under Cabinets",
+            "ip": "192.168.1.155",
+            "ver": "3.3",
+            "id": "ebe097c0407da32084kvtr",
+            "key": "22ad5946c44356a4",
+            "dps": "20"
+        },
+        {
+            "name": "Switch Office Outside Lights",
+            "ip": "192.168.1.145",
+            "ver": "3.3",
+            "id": "017743508caab5f0973e",
+            "key": "e779c96c964f71b2",
+            "devId": "20"
+        }
+    ]
+}

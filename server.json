@@ -1,0 +1,36 @@
+{
+  "name": "Test_Poly_Tuya",
+  "docs": "https://github.com/sjpbailey/udi-tuya-poly-james-play",
+  "type": "python3",
+  "executable": "tuya-test.py",
+  "install": "install.sh",
+  "install_cloud": "install_cloud.sh",
+  "description": "Adding Lighting to James Dyson Poly",
+  "notice": "",
+  "shortPoll": "300",
+  "longPoll": "600",
+  "devMode": true,
+  "profile_version": "3.0.1",
+  "customParams": {
+    "devices": "[{\"name\": \"Backyard Flood Light\", \"id\": \"ebd85577fae5b9605cpvpi\", \"key\": \"fef7d468e4d01d28\"}]"
+  },
+  "credits": [
+    {
+      "title": "Tuya: A Node Server for Controlling Tuya Smart Devices",
+      "author": "Steven Bailey",
+      "version": "1.1.1",
+      "date": "July 16th, 2021",
+      "source": "https://github.com/sjpbailey/udi-tuya-poly-james-play.git",
+      "license": "https://github.com/sjpbailey/udi-tuya-poly-james-play/blob/main/LICENSE"
+    }
+  ],
+  "store": {
+    "developer": "sjpbaiey1961@gmail.com",
+    "purchaseOptions": [
+      {
+        "isPerpetual": true,
+        "price": 0.00
+      }
+    ]
+  }
+}

@@ -1,0 +1,293 @@
+{
+    "result": [
+        {
+            "active_time": 1667065898,
+            "biz_type": 0,
+            "category": "kg",
+            "create_time": 1667064851,
+            "icon": "smart/icon/ay14906729310721fNjn/1568862445415ffab0175.jpg",
+            "id": "017743508caab5f126b0",
+            "ip": "98.41.236.33",
+            "lat": "37.7183",
+            "local_key": "17a1e4c963773637",
+            "lon": "-121.4701",
+            "model": "SS01S(\u4e0d\u5206\u8d1f\u8f7d)\u4e50\u946b",
+            "name": "Master Bedroom Outside ",
+            "online": true,
+            "owner_id": "33161067",
+            "product_id": "pigcdkf9bdubtskr",
+            "product_name": "Smart Light Switch",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": false
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                }
+            ],
+            "sub": false,
+            "time_zone": "-08:00",
+            "uid": "az1610958067414WkfOO",
+            "update_time": 1667065906,
+            "uuid": "017743508caab5f126b0"
+        },
+        {
+            "active_time": 1611129340,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1610826967,
+            "icon": "smart/icon/ay1526363067472WHq8d/b354bef20490dfd22c5a3d4c89b6269c.png",
+            "id": "ebfd4f4263bb769d99zjkq",
+            "ip": "98.41.236.33",
+            "lat": "37.7183",
+            "local_key": "ec0b2b581a246eab",
+            "lon": "-121.4701",
+            "name": "Garage",
+            "online": true,
+            "owner_id": "33161067",
+            "product_id": "vcbxdeohrcq4tcpq",
+            "product_name": "Smart Bulb-SL10",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": true
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value_v2",
+                    "value": 10
+                },
+                {
+                    "code": "temp_value_v2",
+                    "value": 1000
+                },
+                {
+                    "code": "colour_data_v2",
+                    "value": "{\"h\":35,\"s\":662,\"v\":964}"
+                },
+                {
+                    "code": "scene_data_v2",
+                    "value": "{\"scene_num\":1,\"scene_units\":[{\"bright\":24,\"h\":0,\"s\":0,\"temperature\":0,\"unit_change_mode\":\"static\",\"unit_gradient_duration\":13,\"unit_switch_duration\":13,\"v\":0}]}"
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "music_data",
+                    "value": ""
+                },
+                {
+                    "code": "control_data",
+                    "value": ""
+                },
+                {
+                    "code": "rhythm_mode",
+                    "value": "AAAAAAA="
+                },
+                {
+                    "code": "sleep_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "wakeup_mode",
+                    "value": "AAA="
+                }
+            ],
+            "sub": false,
+            "time_zone": "-08:00",
+            "uid": "az1610958067414WkfOO",
+            "update_time": 1667064381,
+            "uuid": "51ff978b119a9dc2"
+        },
+        {
+            "active_time": 1660708648,
+            "biz_type": 0,
+            "category": "dd",
+            "create_time": 1612504334,
+            "icon": "smart/icon/ay14906729310721fNjn/f266b748d1b92584887cde26ea9212ca.png",
+            "id": "ebe097c0407da32084kvtr",
+            "ip": "98.41.236.33",
+            "lat": "37.7183",
+            "local_key": "22ad5946c44356a4",
+            "lon": "-121.4701",
+            "name": "Under Cabinets ",
+            "online": true,
+            "owner_id": "33161067",
+            "product_id": "e8naaq4xcsfvuunf",
+            "product_name": "LED Strip Lights",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": false
+                },
+                {
+                    "code": "work_mode",
+                    "value": "colour"
+                },
+                {
+                    "code": "colour_data",
+                    "value": "{\"h\":240,\"s\":1000,\"v\":1000}"
+                },
+                {
+                    "code": "scene_data",
+                    "value": "{\"scene_num\":1,\"scene_units\":[{\"bright\":0,\"h\":46,\"s\":1000,\"temperature\":0,\"unit_change_mode\":\"static\",\"unit_gradient_duration\":13,\"unit_switch_duration\":14,\"v\":716}]}"
+                },
+                {
+                    "code": "countdown",
+                    "value": 0
+                }
+            ],
+            "sub": false,
+            "time_zone": "-07:00",
+            "uid": "az1610958067414WkfOO",
+            "update_time": 1667064379,
+            "uuid": "c2854608edea94d7"
+        },
+        {
+            "active_time": 1656839758,
+            "biz_type": 0,
+            "category": "kg",
+            "create_time": 1615015039,
+            "icon": "smart/icon/ay14906729310721fNjn/1568862445415ffab0175.jpg",
+            "id": "017743508caab5f385a7",
+            "ip": "98.41.236.33",
+            "lat": "37.7183",
+            "local_key": "2bc2d5aef80f3aee",
+            "lon": "-121.4701",
+            "name": "Switch Family Room Sconces",
+            "online": true,
+            "owner_id": "33161067",
+            "product_id": "pigcdkf9bdubtskr",
+            "product_name": "Smart Light Switch",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                }
+            ],
+            "sub": false,
+            "time_zone": "-08:00",
+            "uid": "az1610958067414WkfOO",
+            "update_time": 1667064379,
+            "uuid": "017743508caab5f385a7"
+        },
+        {
+            "active_time": 1610958245,
+            "biz_type": 0,
+            "category": "kg",
+            "create_time": 1610826905,
+            "icon": "smart/icon/ay14906729310721fNjn/1568862445415ffab0175.jpg",
+            "id": "017743508caab5f0973e",
+            "ip": "98.41.236.33",
+            "lat": "37.7183",
+            "local_key": "e779c96c964f71b2",
+            "lon": "-121.4701",
+            "model": "SS01S(\u4e0d\u5206\u8d1f\u8f7d)\u4e50\u946b",
+            "name": "Switch Office Outside Lights",
+            "online": true,
+            "owner_id": "33161067",
+            "product_id": "pigcdkf9bdubtskr",
+            "product_name": "Smart Light Switch",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": false
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                }
+            ],
+            "sub": false,
+            "time_zone": "-08:00",
+            "uid": "az1610958067414WkfOO",
+            "update_time": 1667064378,
+            "uuid": "017743508caab5f0973e"
+        },
+        {
+            "active_time": 1610958307,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1610825045,
+            "icon": "smart/icon/ay1526363067472WHq8d/b354bef20490dfd22c5a3d4c89b6269c.png",
+            "id": "ebfc16d57ed374932cjqfk",
+            "ip": "98.41.236.33",
+            "lat": "37.7183",
+            "local_key": "805217605357161b",
+            "lon": "-121.4701",
+            "name": "Office Light",
+            "online": true,
+            "owner_id": "33161067",
+            "product_id": "vcbxdeohrcq4tcpq",
+            "product_name": "Smart Bulb-SL10",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": true
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value_v2",
+                    "value": 10
+                },
+                {
+                    "code": "temp_value_v2",
+                    "value": 1000
+                },
+                {
+                    "code": "colour_data_v2",
+                    "value": "{\"h\":195,\"s\":564,\"v\":694}"
+                },
+                {
+                    "code": "scene_data_v2",
+                    "value": "{\"scene_num\":3,\"scene_units\":[{\"bright\":25,\"h\":0,\"s\":0,\"temperature\":1000,\"unit_change_mode\":\"static\",\"unit_gradient_duration\":13,\"unit_switch_duration\":13,\"v\":0}]}"
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "music_data",
+                    "value": ""
+                },
+                {
+                    "code": "control_data",
+                    "value": ""
+                },
+                {
+                    "code": "rhythm_mode",
+                    "value": "AAAAAAA="
+                },
+                {
+                    "code": "sleep_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "wakeup_mode",
+                    "value": "AAA="
+                }
+            ],
+            "sub": false,
+            "time_zone": "-08:00",
+            "uid": "az1610958067414WkfOO",
+            "update_time": 1667064377,
+            "uuid": "8d46651d2af2bb95"
+        }
+    ],
+    "success": true,
+    "t": 1667446547530,
+    "tid": "9aede31b5b2811eda761b2ff20907124"
+}

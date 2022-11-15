@@ -1,0 +1,62 @@
+{
+    "timestamp": 1647643014.601438,
+    "devices": [
+        [
+            {
+                "name": "Office Light",
+                "id": "ebfc16d57ed374932cjqfk",
+                "key": "805217605357161b",
+                "devId": {
+                    "dps": {
+                        "20": false,
+                        "dps": "1"
+                    }
+                }
+            },
+            {
+                "name": "Garage",
+                "id": "ebfd4f4263bb769d99zjkq",
+                "key": "ec0b2b581a246eab",
+                "devId": {
+                    "dps": {
+                        "20": false,
+                        "dps": "1"
+                    }
+                }
+            },
+            {
+                "name": "Switch Office Outside Lights",
+                "id": "017743508caab5f0973e",
+                "key": "e779c96c964f71b2",
+                "devId": {
+                    "dps": {
+                        "20": false,
+                        "dps": "1"
+                    }
+                }
+            },
+            {
+                "name": "Master Bedroom Outside",
+                "id": "017743508caab5f126b0",
+                "key": "17a1e4c963773637",
+                "devId": {
+                    "dps": {
+                        "1": false,
+                        "dps": "1"
+                    }
+                }
+            },
+            {
+                "name": "Backyard Flood Light",
+                "id": "ebd85577fae5b9605cpvpi",
+                "key": "fef7d468e4d01d28",
+                "dps": {
+                    "dps": {
+                        "101": "AUTO",
+                        "dps": "1"
+                    }
+                }
+            }
+        ]
+    ]
+}

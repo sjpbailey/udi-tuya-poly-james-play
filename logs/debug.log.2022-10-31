@@ -1,0 +1,10 @@
+2022-10-31 13:29:41,099 MainThread udi_interface      INFO     polylogger:set_basic_config: set_basic_config: enable=True level=30
+2022-10-31 13:29:41,743 MainThread udi_interface      INFO     __init__:<module>: UDI Python Interface for Polyglot version 3 3.0.15 Starting...
+2022-10-31 17:21:33,479 MainThread udi_interface      INFO     polylogger:set_basic_config: set_basic_config: enable=True level=30
+2022-10-31 17:21:34,112 MainThread udi_interface      INFO     __init__:<module>: UDI Python Interface for Polyglot version 3 3.0.15 Starting...
+2022-10-31 17:21:34,406 MainThread udi_interface      ERROR    udi_interface:write: Traceback (most recent call last):
+2022-10-31 17:21:34,406 MainThread udi_interface      ERROR    udi_interface:write: File "/Users/stevenbailey/UDI Development PG3/udi-tuya-poly-james-play/nodes/TuyaController.py", line 8, in <module>
+2022-10-31 17:21:34,406 MainThread udi_interface      ERROR    udi_interface:write: from nodes import TuyaNode
+2022-10-31 17:21:34,406 MainThread udi_interface      ERROR    udi_interface:write: ModuleNotFoundError
+2022-10-31 17:21:34,406 MainThread udi_interface      ERROR    udi_interface:write: :
+2022-10-31 17:21:34,406 MainThread udi_interface      ERROR    udi_interface:write: No module named 'nodes'

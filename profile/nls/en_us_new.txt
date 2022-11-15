@@ -1,0 +1,69 @@
+# controller
+ND-tuya-NAME = Tuya NodeServer Controller
+ND-tuya-ICON = GenericCtl
+CMD-tuyanls-QUERY-NAME = Query
+CMD-tuyanls-DISCOVER-NAME = Discover
+ST-tuyanls-ST-NAME = Tuya NodeServer Running
+
+# daikinnodetype
+ND-tuyanode-NAME = Tuya Device Name
+ND-tuyanode-ICON = Electricity
+CMD-tuyanodenls-QUERY-NAME = Query
+CMD-tuyanodenls-ON-NAME = On
+CMD-tuyanodenls-OFF-NAME = Off
+CMD-tuyanodenls-AUTO-NAME = Auto
+CMD-tuyanodenls-SET_BRIGHTNESS-NAME = Set Brightness
+CMD-tuyanodenls-SET_ONTIME-NAME = Set On-Time
+ST-tuyanodenls-ST-NAME = Node Active
+ST-tuyanodenls-GV1-NAME = Brightness
+ST-tuyanodenls-GV2-NAME = On-Time
+ST-tuyanodenls-GV3-NAME = Device Status
+
+# switch status
+ISS-0 = Unknown
+ISS-1 = On
+ISS-2 = Off
+ISS-3 = Auto
+
+# mynodetype3
+ND-light-NAME = Light Node
+ND-light-ICON = Output
+ST-lgt-ST-NAME = Node Status
+ST-lgt-GV2-NAME = Light Status
+ST-lgt-GV3-NAME = Light Level
+ST-lgt-GV4-NAME = Light Mode Command
+#ST-lgt-GV5-NAME = Light Color Command
+#ST-lgt-GV5-NAME = Light Colour
+#ST-lgt-GV6-NAME = Light Scene
+#ST-lgt-GV7-NAME = Light Music
+#ST-lgt-GV8-NAME = Light White
+
+
+CMD-lgt-LGTON-NAME = Light On
+CMD-lgt-LGTOF-NAME = Light Off
+CMD-lgt-LGTCFLIP-NAME = Light Test
+CMD-lgt-STLVL-NAME = Set Level
+CMD-lgt-MODE-NAME = Command
+
+# LED Modes
+MODE-0 = Colour
+MODE-1 = Scene
+MODE-2 = Music
+MODE-3 = Red
+MODE-4 = Orange
+MODE-5 = Yellow
+MODE-6 = Green
+MODE-7 = Blue
+MODE-8 = Indigo
+MODE-9 = Violet
+MODE-10 = White
+
+# Switch
+ND-switch-NAME = Switch 
+ND-switch-ICON = Electricity
+ST-swt-ST-NAME = Node Status
+ST-swt-GV2-NAME = Switch Status
+CMD-swt-SWTON-NAME = Switch On
+CMD-swt-SWTOF-NAME = Switch Off
+CMD-swt-QUERY-NAME = Query
+
