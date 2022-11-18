@@ -9,16 +9,6 @@ import tinytuya
 import pandas as pd
 import numpy as np
 
-###### Custom Parameters ######
-new_sign_algorithm = True,
-token = None,
-headers = None,
-body = None,
-apiRegion = "",
-apiKey = "",
-apiSecret = "",
-uri = "token?grant_type = 1",
-
 
 def tuyaPlatform(apiRegion, apiKey, apiSecret, uri, token=None, new_sign_algorithm=True, body=None, headers=None):
     ###### Authentacation ######
@@ -55,13 +45,13 @@ def tuyaPlatform(apiRegion, apiKey, apiSecret, uri, token=None, new_sign_algorit
         headers['access_token'] = token
     # Get Token
     response = requests.get(url, headers=headers)
-    #print(f"LINE 58 Token: {response}")
+    #print(f"LINE 48 Token: {response}")
     try:
         response_dict = json.loads(response.content.decode())
     except:
         try:
             response_dict = json.dumps(response.content)
-            # print(response_dict)
+            print(response_dict)
         except:
             print("Failed to get valid JSON response")
     return (response_dict)
@@ -78,14 +68,14 @@ needconfigs = False
 if config['apiKey'] == '':
     print('PLEASE ADD YOUR CREDENTIALS')
 # First Message
-print('LINE 81 TinyTuya Device Appender ' + ' [%s]' % (tinytuya.version))
+print('LINE 71 TinyTuya Device Appender ' + ' [%s]' % (tinytuya.version))
 print('')
 
 if (config['apiKey'] != '' and config['apiSecret'] != '' and
         config['apiRegion'] != '' and config['apiDeviceID'] != ''):
     needconfigs = False
     # Second Message
-    print("    " + "LINE 88 Existing settings:" + "\nAPI Key=%s \nSecret=%s\nDeviceID=%s\n Region=%s" %
+    print("    " + "LINE 78 Existing settings:" + "\nAPI Key=%s \nSecret=%s\nDeviceID=%s\n Region=%s" %
           (config['apiKey'], config['apiSecret'], config['apiDeviceID'], config['apiRegion']))
     # Append Config
     json_object = json.dumps(config, indent=4)
@@ -101,7 +91,7 @@ if (config['apiKey'] != '' and config['apiSecret'] != '' and
     # Get Oauth Token from tuyaPlatform
     uri = 'token?grant_type=1'
     response_dict = tuyaPlatform(REGION, KEY, SECRET, uri)
-    print(f"LINE 104 RESPONSE DICT ACCESS TOKEN : {response_dict}")
+    print(f"LINE 94 RESPONSE DICT ACCESS TOKEN : {response_dict}")
     if not response_dict['success']:
         print('\n\n' 'Error from Tuya server: ' + response_dict['msg'])
         pass
@@ -122,7 +112,7 @@ if (config['apiKey'] != '' and config['apiSecret'] != '' and
 
     # Here internet IP address everything
     output = json.dumps(json_data, indent=4)
-    print(f"\nLINE 125 Future Cloud Control json: {output}\n")
+    #print(f"\nLINE 115 Future Cloud Control json: {output}\n")
 
     # Filter to only Name, ID and Key
     tuyadevices = []
@@ -135,11 +125,11 @@ if (config['apiKey'] != '' and config['apiSecret'] != '' and
 
     # Display device list
     output = json.dumps(tuyadevices, indent=4)  # sort_keys=True')
-    print("\n\n" + "LINE 138 Device Listing\n")
+    #print("\n\n" + "LINE 128 Device Listing\n")
     print(output)
 
     # Scan network for devices and provide polling data
-    #print("\nLINE 142 Scanning local network for Tuya devices...")
+    #print("\nLINE 132 Scanning local network for Tuya devices...")
     devices = tinytuya.deviceScan(False, 20)
 
     def getIP(d, gwid):
@@ -150,7 +140,7 @@ if (config['apiKey'] != '' and config['apiSecret'] != '' and
         return (0, 0)
 
     polling = []
-    print("LINE 153 Polling local devices...")
+    print("LINE 143 Polling local devices...")
     for i in tuyadevices:
         item = {}
         name = i['name']
@@ -203,14 +193,14 @@ if (config['apiKey'] != '' and config['apiSecret'] != '' and
     # Save polling data snapsot
     current = {'timestamp': time.time(), 'devices': polling}
     output1 = json.dumps(current, indent=4)  # indent=4
-    # print(f"LINE 207 Local Device json {output1}")
+    # print(f"LINE 196 Local Device json {output1}")
 
     #print('\nThis is POLLED Add DPS sorter here\n')
     df = pd.read_json(output1)
     df = pd.json_normalize(df['devices'])  # Works with Tuple Inserted
     df = df.fillna(-1)
 
-    # print(f"LINE 214 DF: {df}")
+    # print(f"LINE 203 DF: {df}")
     df['type'] = None
 
     try:
@@ -288,4 +278,4 @@ if (config['apiKey'] != '' and config['apiSecret'] != '' and
             # self.poly.addNode(node)
             # self.wait_for_node_event()
 
-    print("\nDone.\n")
+print("\nDone.\n")

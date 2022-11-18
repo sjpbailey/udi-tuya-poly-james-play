@@ -1,8 +1,8 @@
-2022-11-15 11:05:08,608 MainThread udi_interface      INFO     polylogger:set_basic_config: set_basic_config: enable=True level=30
-2022-11-15 11:05:09,502 MainThread udi_interface      INFO     __init__:<module>: UDI Python Interface for Polyglot version 3 3.0.15 Starting...
-2022-11-15 11:05:09,773 MainThread udi_interface      ERROR    udi_interface:write: Traceback (most recent call last):
-2022-11-15 11:05:09,773 MainThread udi_interface      ERROR    udi_interface:write: File "/Users/stevenbailey/UDI Development PG3/udi-tuya-poly-james-play/nodes/Tuya_Controller.py", line 9, in <module>
-2022-11-15 11:05:09,773 MainThread udi_interface      ERROR    udi_interface:write: from nodes import TuyaNode
-2022-11-15 11:05:09,773 MainThread udi_interface      ERROR    udi_interface:write: ModuleNotFoundError
-2022-11-15 11:05:09,773 MainThread udi_interface      ERROR    udi_interface:write: :
-2022-11-15 11:05:09,773 MainThread udi_interface      ERROR    udi_interface:write: No module named 'nodes'
+2022-11-18 09:35:59,952 MainThread udi_interface      INFO     polylogger:set_basic_config: set_basic_config: enable=True level=30
+2022-11-18 09:36:00,628 MainThread udi_interface      INFO     __init__:<module>: UDI Python Interface for Polyglot version 3 3.0.15 Starting...
+2022-11-18 09:36:00,900 MainThread udi_interface      ERROR    udi_interface:write: Traceback (most recent call last):
+2022-11-18 09:36:00,900 MainThread udi_interface      ERROR    udi_interface:write: File "/Users/stevenbailey/UDI Development PG3/udi-tuya-poly-james-play/nodes/controllers_nodes/New_Controllers/Tuya_Controller_Local_Devices.py", line 9, in <module>
+2022-11-18 09:36:00,900 MainThread udi_interface      ERROR    udi_interface:write: from nodes import TuyaNode
+2022-11-18 09:36:00,900 MainThread udi_interface      ERROR    udi_interface:write: ModuleNotFoundError
+2022-11-18 09:36:00,900 MainThread udi_interface      ERROR    udi_interface:write: :
+2022-11-18 09:36:00,900 MainThread udi_interface      ERROR    udi_interface:write: No module named 'nodes'

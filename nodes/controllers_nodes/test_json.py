@@ -39,11 +39,13 @@ jsondata = {"name": "LED Office",
 # print(type(data1))
 # jsondata = [{"name": "LED Office", "id": "ebfc16d57ed374932cjqfk", "key": "805217605357161b", "dps": {"20": False, "21": "white", "22": 10, "23": 1000,
 #                                                                                                     "24": "009d03c603a1", "25": "020d0d00000000000000001903e8", "26": 0}}]
-devices_list = json.loads(jsondata)
+devices_list = json.dumps(jsondata)
 print(type(devices_list))
+print(devices_list)
 for i in devices_list:
-    print(i,)
+    print(devices_list[0])
 # for dps in str(jsondata):  # )xfor i in node_status: gives dps devId)
+
 
 """devices_list = json.dumps(jsondata)
 print("%-25s %-24s %-16s %-17s %-5s" % ("Name", "ID", "IP", "Key", "Version"))
