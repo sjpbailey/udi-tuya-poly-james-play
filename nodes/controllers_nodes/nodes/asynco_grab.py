@@ -188,7 +188,7 @@ def tuyaPlatform(apiRegion, apiKey, apiSecret, uri, token=None, new_sign_algorit
         headers['access_token'] = token
     # Get Token
     response = requests.get(url, headers=headers)
-    #print(f"LINE 58 Token: {response}")
+    print(f"LINE 58 Token: {response}")
     try:
         response_dict = json.loads(response.content.decode())
     except:
@@ -197,7 +197,9 @@ def tuyaPlatform(apiRegion, apiKey, apiSecret, uri, token=None, new_sign_algorit
             print(response_dict)
         except:
             print("Failed to get valid JSON response")
-    return (response_dict)
+    # return (response_dict)
+
+    print(response_dict)
 
 
 # Custom Parameters Credentials
