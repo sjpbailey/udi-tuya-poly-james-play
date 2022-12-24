@@ -98,8 +98,8 @@ class TuyaController(udi_interface.Node):
                     # HERE DPS
                     node_status = self.tuya_device.status()
                     LOGGER.info("Node Status {}".format(str(node_status)))
-                    params = str(node_status) + str(value['name']) + str(value['key']) + \
-                        str(value['gwId']) + str(value['ip'])
+                    params = str(value['name'], value['key'],
+                                 value['gwId'], value['ip']) + str(node_status)
 
                     LOGGER.info(params)
 
