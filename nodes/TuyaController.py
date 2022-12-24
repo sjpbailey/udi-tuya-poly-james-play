@@ -80,7 +80,7 @@ class TuyaController(udi_interface.Node):
 
                 if device_node is None:
                     self.tuya_device = tinytuya.BulbDevice(
-                        value['gwId'], value['ip'], value['key'])
+                        value['gwId'], value['ip'], value['key'], value['devId'], value['devId']['dps'])
                     # self.device['gwId'], self.device['ip'], self.device['key'])
                     LOGGER.info(self.tuya_device)
                     self.tuya_device.set_version(3.3)
@@ -130,7 +130,9 @@ class TuyaController(udi_interface.Node):
             pass
 
         lights = df[df['type'] == 'light'].reset_index(drop=True)
+        LOGGER.info(lights)
         switches = df[df['type'] == 'switch'].reset_index(drop=True)
+        LOGGER.info(switches)
         tuya = df[df['type'] == 'tuya'].reset_index(drop=True)
 
         device_list = [lights]
