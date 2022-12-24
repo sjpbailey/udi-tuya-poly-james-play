@@ -112,11 +112,11 @@ class TuyaController(udi_interface.Node):
         jsonData = json.dumps(str(node_status))
         #jsonData = json.dumps(str(node_status))
         #jsonData1 = json.loads(jsonData)
-        # print(jsonData)
+        LOGGER.info(jsonData)
         # print(jsonData1)
         #jsonData = ast.literal_eval(jsonData)
         #df = pd.read_json(str(node_status))
-        df = pd.json_normalize(jsonData)  # jsonData['devices'])
+        """df = pd.json_normalize(jsonData)  # jsonData['devices'])
 
         df.to_dict()
         df = df.fillna(-1)
@@ -177,7 +177,7 @@ class TuyaController(udi_interface.Node):
                 node = tuya_switch_node.SwitchNode(
                     self.poly, self.address, address, name, id_new, ip, key)
                 self.poly.addNode(node)
-                self.wait_for_node_done()
+                self.wait_for_node_done()"""
 
         LOGGER.info('Finished Tuya Device Discovery')
 
