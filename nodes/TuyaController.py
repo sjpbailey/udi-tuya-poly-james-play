@@ -88,8 +88,8 @@ class TuyaController(udi_interface.Node):
                     self.tuya_device = tinytuya.BulbDevice(
                         value['gwId'], value['ip'], value['key'])
                     node_status = self.tuya_device.status()
-                    LOGGER.info(node_status)
-                    LOGGER.info("Node Status {}".format(str(node_status)))
+                    # LOGGER.info(node_status)
+                    #LOGGER.info("Node Status {}".format(str(node_status)))
                     # LOGGER.info(node_status)
                     self.tuya_device.set_version(3.3)
                     self.query()
@@ -116,7 +116,8 @@ class TuyaController(udi_interface.Node):
         # print(jsonData1)
         #jsonData = ast.literal_eval(jsonData)
 
-        df = pd.json_normalize(node_status)  # jsonData['devices'])
+        # json_normalize(node_status)  # jsonData['devices'])
+        df = pd.node_status
         #df = pd.read_json(jsonData1)
         df.to_dict()
         df = df.fillna(-1)
