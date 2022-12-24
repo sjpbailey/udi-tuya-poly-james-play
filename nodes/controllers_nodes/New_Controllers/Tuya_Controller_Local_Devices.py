@@ -1,3 +1,4 @@
+from nodes import tuya_light_node
 import udi_interface
 import tinytuya
 import json
@@ -6,8 +7,7 @@ import ast
 import pandas as pd
 import numpy as np
 
-from nodes import TuyaNode
-from nodes import tuya_light_node
+f  # rom nodes import TuyaNode
 
 # IF you want a different log format than the current default
 LOGGER = udi_interface.LOGGER
