@@ -6,7 +6,7 @@ import ast
 import pandas as pd
 import numpy as np
 
-#from nodes import TuyaNode
+from nodes import TuyaNode
 from nodes import tuya_light_node
 from nodes import tuya_switch_node
 
