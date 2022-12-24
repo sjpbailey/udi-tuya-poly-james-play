@@ -8,6 +8,7 @@ import numpy as np
 
 #from nodes import TuyaNode
 from nodes import tuya_light_node
+from nodes import tuya_switch_node
 
 # IF you want a different log format than the current default
 LOGGER = udi_interface.LOGGER
