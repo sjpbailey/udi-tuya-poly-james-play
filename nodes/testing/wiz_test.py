@@ -621,7 +621,7 @@ for i in tuyadevices:
 
 # add string here for devices instead of jsonfile only for names
 # df = pd.json_normalize(jsonData2[1])  # jsonData
-df = pd.read_json(jsonData2['devices'])
+df = pd.read_json(jsonData2[0])
 df = df.fillna(-1)
 print(df)
 df['type'] = None
