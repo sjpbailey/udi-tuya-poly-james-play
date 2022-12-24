@@ -63,7 +63,7 @@ class TuyaController(udi_interface.Node):
         devices_list = json.loads(self.Parameters['devices'])
 
         LOGGER.info(json.dumps(devices_list))
-        scan_results = tinytuya.deviceScan()
+        scan_results = tinytuya.deviceScan(False, 20)
 
         for value in scan_results.values():
             ip = value['ip']
@@ -92,16 +92,72 @@ class TuyaController(udi_interface.Node):
                     #LOGGER.info("Node Status {}".format(str(node_status)))
                     # LOGGER.info(node_status)
                     self.tuya_device.set_version(3.3)
-                    self.query()
+                    # self.query()
 
-    def query(self):
-        #devices_list = json.loads(self.Parameters['devices'])
         # LOGGER.info(devices_list)
-        node_status = self.tuya_device.status()  # HERE DPS
-        LOGGER.info("Node Status {}".format(str(node_status)))
-        LOGGER.info(type(str(node_status)))
-        for i in node_status:  # )xfor i in node_status: gives dps devId)
-            LOGGER.info(i)
+                    node_status = self.tuya_device.status()  # HERE DPS
+                    LOGGER.info("Node Status {}".format(str(node_status)))
+                    LOGGER.info(type(str(node_status)))
+                    for i in node_status:  # )xfor i in node_status: gives dps devId)
+                        LOGGER.info(i)
+
+                    polling = []
+                    print("LINE 143 Polling local devices...")
+                    for i in self.tuyadevices:
+                        item = {}
+                        name = i['name']
+                        (ip, ver) = scan_results, i['gwId']
+                        item['name'] = name
+                        item['ip'] = ip
+                        item['ver'] = ver
+                        item['id'] = i['id']
+                        item['key'] = i['key']
+                        if (ip == 0):
+                            pass
+                        else:
+                            try:
+                                d = tinytuya.OutletDevice(
+                                    i['id'], ip, i['key'])
+                                if ver == "3.3":
+                                    d.set_version(3.3)
+                                data = d.status()
+                                if 'dps' in data:
+                                    item['dps'] = data
+                                    state = "Off"
+                                    try:
+                                        if '1' in data['dps'] or '20' in data['dps']:
+                                            if '1' in data['dps']:
+                                                if data['dps']['1'] == True:
+                                                    state = "On"
+                                            if '20' in data['dps']:
+                                                if data['dps']['20'] == True:
+                                                    state = "On"
+                                            # print("    %s[%s] - %s%s - %s - DPS: %r" %
+                                            #     (name, ip, state, data['dps']))
+                                        else:
+                                            # print("    %s[%s] - %s%s - DPS: %r" %
+                                            #      (name, ip, data['dps']))
+                                            pass
+                                    except:
+                                        # print("    %s[%s] - %s%s - %sNo Response" %
+                                        #      (name, ip))
+                                        pass
+                                else:
+                                    # print("    %s[%s] - %s%s - %sNo Response" %
+                                    #      (name, ip,))
+                                    pass
+                            except:
+                                # print("    %s[%s] - %s%s - %sNo Response" %
+                                #      (name, ip))
+                                pass
+                        polling.append(item)
+                        # for loop
+
+                        # Save polling data snapsot
+                        current = {'timestamp': time.time(),
+                                   'devices': polling}
+                        output1 = json.dumps(current, indent=4)  # indent=4
+                        LOGGER.info(f"LINE 196 Local Device json {output1}")
 
         # LOGGER.info(
         #    f"Adding Node: {device_id} - {dict_found['name']}")
@@ -109,10 +165,10 @@ class TuyaController(udi_interface.Node):
         #    TuyaNode(self.poly, self.address, device_id, dict_found['name'], value))
         # self.wait_for_node_event()
         # works to read dict with single quotes
-        jsonData = json.dumps(str(node_status))
+                    jsonData = json.dumps(+ str(node_status))
         #jsonData = json.dumps(str(node_status))
         #jsonData1 = json.loads(jsonData)
-        LOGGER.info(jsonData)
+                    LOGGER.info(jsonData)
         # print(jsonData1)
         #jsonData = ast.literal_eval(jsonData)
         #df = pd.read_json(str(node_status))
@@ -191,6 +247,9 @@ class TuyaController(udi_interface.Node):
                 nodes[node].setDriver('ST', 0, True, True)
         self.poly.stop()
         LOGGER.info('Daikin Tuya stopped.')
+
+    def query(self, command=None):
+        LOGGER.info("Query sensor {}".format(self.address))
 
     id = 'tuya'
     commands = {
