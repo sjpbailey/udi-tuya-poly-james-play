@@ -6,7 +6,7 @@ import ast
 import pandas as pd
 import numpy as np
 
-from nodes import TuyaNode
+#from nodes import TuyaNode
 from nodes import tuya_light_node
 
 # IF you want a different log format than the current default
@@ -140,6 +140,43 @@ class TuyaController(udi_interface.Node):
 
         lights = df[df['type'] == 'light'].reset_index(drop=True)
         LOGGER.info(lights)
+        switches = df[df['type'] == 'switch'].reset_index(drop=True)
+        LOGGER.info(switches)
+
+        device_list = [lights]
+        for device in device_list:
+            for idx, row in device.iterrows():
+                name = row['name']
+                id = row['id']
+                id_new = id
+                ip = row['ip']
+                key = row['key']
+                ver = row['ver']
+                #id_new = id
+                address = row['type'] + '_%s' % (idx+1)
+                LOGGER.info('{name}\n{id_new}\n{ip}\n{key}\n{ver}\n{address}\n'.format(
+                    name=name, id_new=id_new, ip=ip, key=key, ver=ver, address=address,))
+                node = tuya_light_node.LightNode(
+                    self.poly, self.address, address, name, id_new, ip, key)
+                self.poly.addNode(node)
+                self.wait_for_node_done()
+
+        device_list = [switches]
+        for device in device_list:
+            for idx, row in device.iterrows():
+                name = row['name']
+                id = row['id']
+                id_new = id
+                ip = row['ip']
+                key = row['key']
+                ver = row['ver']
+                address = row['type'] + '_%s' % (idx+1)
+                LOGGER.info('{name}\n{id_new}\n{ip}\n{key}\n{ver}\n{address}\n'.format(
+                    name=name, id_new=id_new, ip=ip, key=key, ver=ver, address=address,))
+                node = tuya_switch_node.SwitchNode(
+                    self.poly, self.address, address, name, id_new, ip, key)
+                self.poly.addNode(node)
+                self.wait_for_node_done()
 
         LOGGER.info('Finished Tuya Device Discovery')
 
