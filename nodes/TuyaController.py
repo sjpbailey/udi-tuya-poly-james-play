@@ -99,7 +99,7 @@ class TuyaController(udi_interface.Node):
                     node_status = self.tuya_device.status()
                     LOGGER.info("Node Status {}".format(str(node_status)))
                     params = value['name'] + value['key'] + \
-                        value['gwId'] + value['ip'] + str(node_status)
+                        value['gwId'] + value['ip'] + (node_status)
 
                     LOGGER.info(params)
 
