@@ -87,21 +87,12 @@ class TuyaController(udi_interface.Node):
                     time.sleep(3)
                     self.tuya_device = tinytuya.BulbDevice(
                         value['gwId'], value['ip'], value['key'])
-                    node_status = self.tuya_device.status()
-                    # LOGGER.info(node_status)
-                    #LOGGER.info("Node Status {}".format(str(node_status)))
-                    # LOGGER.info(node_status)
                     self.tuya_device.set_version(3.3)
-                    # self.query()
 
-        # LOGGER.info(devices_list)
                     # HERE DPS
                     node_status = self.tuya_device.status()
                     LOGGER.info("Node Status {}".format(str(node_status)))
-                    params = value['name'] + value['key'] + \
-                        value['gwId'] + value['ip'] + (node_status)
-
-                    LOGGER.info(params)
+                    LOGGER.info(self.tuya_device + node_status)
 
                     """for i in node_status:  # )xfor i in node_status: gives dps devId)
                         LOGGER.info(i)
