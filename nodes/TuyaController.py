@@ -92,7 +92,7 @@ class TuyaController(udi_interface.Node):
                     # HERE DPS
                     node_status = self.tuya_device.status()
                     LOGGER.info("Node Status {}".format(str(node_status)))
-                    LOGGER.info(self.tuya_device, node_status)
+                    LOGGER.info(self.tuya_device(), node_status())
 
                     """for i in node_status:  # )xfor i in node_status: gives dps devId)
                         LOGGER.info(i)
