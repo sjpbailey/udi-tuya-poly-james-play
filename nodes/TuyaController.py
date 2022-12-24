@@ -115,7 +115,7 @@ class TuyaController(udi_interface.Node):
         # print(jsonData)
         # print(jsonData1)
         #jsonData = ast.literal_eval(jsonData)
-        df = pd.read_json(str(node_status))
+        #df = pd.read_json(str(node_status))
         df = pd.json_normalize(str(node_status))  # jsonData['devices'])
 
         df.to_dict()
