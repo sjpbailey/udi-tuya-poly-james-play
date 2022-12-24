@@ -102,7 +102,8 @@ class TuyaController(udi_interface.Node):
                         str(value['gwId']) + str(value['ip'])
 
                     LOGGER.info(params)
-                    for i in node_status:  # )xfor i in node_status: gives dps devId)
+
+                    """for i in node_status:  # )xfor i in node_status: gives dps devId)
                         LOGGER.info(i)
 
                     polling = []
@@ -161,7 +162,7 @@ class TuyaController(udi_interface.Node):
                         current = {'timestamp': time.time(),
                                    'devices': polling}
                         output1 = json.dumps(current, indent=4)  # indent=4
-                        LOGGER.info(f"LINE 196 Local Device json {output1}")
+                        LOGGER.info(f"LINE 196 Local Device json {output1}")"""
 
         # LOGGER.info(
         #    f"Adding Node: {device_id} - {dict_found['name']}")
