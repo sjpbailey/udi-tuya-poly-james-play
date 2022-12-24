@@ -109,14 +109,14 @@ class TuyaController(udi_interface.Node):
         #    TuyaNode(self.poly, self.address, device_id, dict_found['name'], value))
         # self.wait_for_node_event()
         # works to read dict with single quotes
-        #jsonData = json.dumps(str(node_status))
+        jsonData = json.dumps(str(node_status))
         #jsonData = json.dumps(str(node_status))
         #jsonData1 = json.loads(jsonData)
         # print(jsonData)
         # print(jsonData1)
         #jsonData = ast.literal_eval(jsonData)
         #df = pd.read_json(str(node_status))
-        df = pd.json_normalize(str(node_status))  # jsonData['devices'])
+        df = pd.json_normalize(jsonData)  # jsonData['devices'])
 
         df.to_dict()
         df = df.fillna(-1)
