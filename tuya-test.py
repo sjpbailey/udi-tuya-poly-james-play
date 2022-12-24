@@ -7,7 +7,7 @@ import logging
 from nodes import tuya_light_node
 from nodes import tuya_switch_node
 from nodes import TuyaNode
-from nodes import TuyaController
+from nodes import Tuya_Controller
 import udi_interface
 import sys
 
@@ -18,9 +18,9 @@ LOG_HANDLER = udi_interface.LOG_HANDLER
 if __name__ == "__main__":
     try:
         LOGGER.debug("Staring Tuya Interface")
-        polyglot = udi_interface.Interface([TuyaController, TuyaNode])
+        polyglot = udi_interface.Interface([Tuya_Controller, TuyaNode])
         polyglot.start()
-        control = TuyaController(
+        control = Tuya_Controller(
             polyglot, 'controller', 'controller', 'Tuya Controller')
         polyglot.runForever()
     except (KeyboardInterrupt, SystemExit):
