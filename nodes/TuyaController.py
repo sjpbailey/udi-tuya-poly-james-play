@@ -80,7 +80,7 @@ class TuyaController(udi_interface.Node):
 
                 if device_node is None:
                     self.tuya_device = tinytuya.BulbDevice(
-                        value['gwId'], value['ip'], value['key'], value['devId']['dps'])
+                        value['gwId'], value['ip'], value['key'], value['gwId']['dps'])
                     # self.device['gwId'], self.device['ip'], self.device['key'])
                     LOGGER.info(self.tuya_device)
                     self.tuya_device.set_version(3.3)
