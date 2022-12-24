@@ -7,7 +7,7 @@ import ast
 import pandas as pd
 import numpy as np
 
-f  # rom nodes import TuyaNode
+# rom nodes import TuyaNode
 
 # IF you want a different log format than the current default
 LOGGER = udi_interface.LOGGER

@@ -96,11 +96,12 @@ class TuyaController(udi_interface.Node):
 
         # LOGGER.info(devices_list)
                     # HERE DPS
-                    node_status = str(value['name']) + str(value['key']) + \
-                        str(value['gwId']) + str(value['ip']) + \
-                        self.tuya_device.status()
+                    node_status = self.tuya_device.status()
                     LOGGER.info("Node Status {}".format(str(node_status)))
-                    LOGGER.info(type(str(node_status)))
+                    params = node_status + str(value['name']) + str(value['key']) + \
+                        str(value['gwId']) + str(value['ip'])
+
+                    LOGGER.info(params)
                     for i in node_status:  # )xfor i in node_status: gives dps devId)
                         LOGGER.info(i)
 
