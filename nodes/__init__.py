@@ -1,2 +1,2 @@
 from .TuyaNode import TuyaNode
-from .TuyaController import TuyaController
+from .Tuya_Controller import Tuya_Controller
