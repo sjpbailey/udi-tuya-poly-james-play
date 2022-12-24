@@ -55,7 +55,7 @@ class TuyaController(udi_interface.Node):
 
     def query(self, command=None):
         LOGGER.info("Query sensor {}".format(self.address))
-####### If you call discovery twice it locks up as it trys to ad more devices ######
+#### you cannot do this because it re-installs and locks up the node server ####
         # self.discover()
 
     def discover(self, *args, **kwargs):
@@ -82,9 +82,6 @@ class TuyaController(udi_interface.Node):
                     self.tuya_device = tinytuya.BulbDevice(
                         value['gwId'], value['ip'], value['key'])
                     # self.device['gwId'], self.device['ip'], self.device['key'])
-                    node_status = self.tuya_device.status()
-                    LOGGER.info(node_status)
-                    LOGGER.info("Node Status {}".format(str(node_status)))
                     LOGGER.info(self.tuya_device)
                     self.tuya_device.set_version(3.3)
                     # , {dict_found['dps']}
@@ -133,7 +130,9 @@ class TuyaController(udi_interface.Node):
             pass
 
         lights = df[df['type'] == 'light'].reset_index(drop=True)
+        LOGGER.info(lights)
         switches = df[df['type'] == 'switch'].reset_index(drop=True)
+        LOGGER.info(switches)
         tuya = df[df['type'] == 'tuya'].reset_index(drop=True)
 
         device_list = [lights]
