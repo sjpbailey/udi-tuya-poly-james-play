@@ -2,13 +2,12 @@ import udi_interface
 import tinytuya
 import json
 import time
-import ast
 import pandas as pd
 import numpy as np
 
 from nodes import TuyaNode
-from nodes import tuya_light_node
 from nodes import tuya_switch_node
+from nodes import tuya_light_node
 
 # IF you want a different log format than the current default
 LOGGER = udi_interface.LOGGER
@@ -54,8 +53,9 @@ class TuyaController(udi_interface.Node):
         self.poly.setCustomParamsDoc()
         self.discover()
 
-    # def query(self, command=None):
-    #    LOGGER.info("Query sensor {}".format(self.address))
+    def query(self, command=None):
+        LOGGER.info("Query sensor {}".format(self.address))
+####### If you call discovery twice it locks up as it trys to ad more devices ######
         # self.discover()
 
     def discover(self, *args, **kwargs):
@@ -68,57 +68,47 @@ class TuyaController(udi_interface.Node):
         for value in scan_results.values():
             ip = value['ip']
             device_id = value['gwId']
+            self.device = device_id
             if len(device_id) > 10:
                 device_id = device_id[:10]
 
-            #LOGGER.info(f"Device Scan Device IP: {ip}")
+            LOGGER.info(f"Device Scan Device IP: {ip}")
             for dict_found in [x for x in devices_list if x["id"] == value['gwId']]:
                 value['name'] = dict_found['name']
                 value['key'] = dict_found['key']
                 device_node = self.poly.getNode(device_id)
-                LOGGER.info(f"device_node: {device_node}")
+
                 if device_node is None:
-                    LOGGER.info(
-                        f"Adding Node: {device_id} - {dict_found['name']}")
-                    LOGGER.info("Node Name {}".format(value['name']))
-                    LOGGER.info("Node key {}".format(value['key']))
-                    LOGGER.info("Node id {}".format(value['gwId']))
-                    LOGGER.info("Node ip {}".format(value['ip']))
-                    time.sleep(3)
                     self.tuya_device = tinytuya.BulbDevice(
                         value['gwId'], value['ip'], value['key'])
-                    node_status = self.tuya_device.status()
-                    LOGGER.info(node_status)
-                    LOGGER.info("Node Status {}".format(str(node_status)))
-                    # LOGGER.info(node_status)
+                    # self.device['gwId'], self.device['ip'], self.device['key'])
+                    LOGGER.info(self.tuya_device)
                     self.tuya_device.set_version(3.3)
-                    self.query()
+                    # , {dict_found['dps']}
+                    LOGGER.info(
+                        f"Adding Node: {device_id} - {dict_found['name']}, {dict_found['key']}, {value['gwId']}, {value['ip']} ")
 
-    def query(self):
-        #devices_list = json.loads(self.Parameters['devices'])
-        # LOGGER.info(devices_list)
-        node_status = self.tuya_device.status()  # HERE DPS
-        LOGGER.info("Node Status {}".format(str(node_status)))
-        LOGGER.info(type(str(node_status)))
-        for i in node_status:  # )xfor i in node_status: gives dps devId)
+                name = dict_found['name']
+                key = dict_found['key']
+                id_new = dict_found['id']
+                x = 0
+                x = x+1
+                address = x
+
+                LOGGER.info(name)
+                LOGGER.info(key)
+                LOGGER.info(id_new)
+                LOGGER.info(ip)
+                LOGGER.info(device_id)
+
+        LOGGER.info('Finished Tuya Device Discovery')
+
+        jsonData = json.loads(self.Parameters['devices'])
+        LOGGER.info(jsonData)
+        for i in jsonData:
             LOGGER.info(i)
-
-        # LOGGER.info(
-        #    f"Adding Node: {device_id} - {dict_found['name']}")
-        # self.poly.addNode(
-        #    TuyaNode(self.poly, self.address, device_id, dict_found['name'], value))
-        # self.wait_for_node_event()
-        # works to read dict with single quotes
-        #jsonData = json.dumps(str(node_status))
-        #jsonData = json.dumps(str(node_status))
-        #jsonData1 = json.loads(jsonData)
-        # print(jsonData)
-        # print(jsonData1)
-        #jsonData = ast.literal_eval(jsonData)
-
-        df = pd.json_normalize(node_status)  # jsonData['devices'])
-        #df = pd.read_json(jsonData1)
-        df.to_dict()
+        #device = jsonData['devices']
+        df = pd.json_normalize(jsonData)  # jsonData['devices'])
         df = df.fillna(-1)
         LOGGER.info('devices')
         LOGGER.info(df)
@@ -140,9 +130,8 @@ class TuyaController(udi_interface.Node):
             pass
 
         lights = df[df['type'] == 'light'].reset_index(drop=True)
-        LOGGER.info(lights)
         switches = df[df['type'] == 'switch'].reset_index(drop=True)
-        LOGGER.info(switches)
+        tuya = df[df['type'] == 'tuya'].reset_index(drop=True)
 
         device_list = [lights]
         for device in device_list:
@@ -153,14 +142,14 @@ class TuyaController(udi_interface.Node):
                 ip = row['ip']
                 key = row['key']
                 ver = row['ver']
-                #id_new = id
+                # id_new = id
                 address = row['type'] + '_%s' % (idx+1)
                 LOGGER.info('{name}\n{id_new}\n{ip}\n{key}\n{ver}\n{address}\n'.format(
                     name=name, id_new=id_new, ip=ip, key=key, ver=ver, address=address,))
                 node = tuya_light_node.LightNode(
                     self.poly, self.address, address, name, id_new, ip, key)
                 self.poly.addNode(node)
-                self.wait_for_node_done()
+                self.wait_for_node_event()
 
         device_list = [switches]
         for device in device_list:
@@ -177,9 +166,24 @@ class TuyaController(udi_interface.Node):
                 node = tuya_switch_node.SwitchNode(
                     self.poly, self.address, address, name, id_new, ip, key)
                 self.poly.addNode(node)
-                self.wait_for_node_done()
+                self.wait_for_node_event()
 
-        LOGGER.info('Finished Tuya Device Discovery')
+        device_list = [tuya]
+        for device in device_list:
+            for idx, row in device.iterrows():
+                name = row['name']
+                id = row['id']
+                id_new = id
+                ip = row['ip']
+                key = row['key']
+                ver = row['ver']
+                address = row['type'] + '_%s' % (idx+1)
+                LOGGER.info('{name}\n{id_new}\n{ip}\n{key}\n{ver}\n{address}\n'.format(
+                    name=name, id_new=id_new, ip=ip, key=key, ver=ver, address=address,))
+                node = TuyaNode(
+                    self.poly, self.address, address, name, value)
+                self.poly.addNode(node)
+                self.wait_for_node_event()
 
     def delete(self):
         LOGGER.info('Deleting Tuya Node Server')
