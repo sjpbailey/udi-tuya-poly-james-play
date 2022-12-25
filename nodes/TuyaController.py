@@ -93,8 +93,14 @@ class TuyaController(udi_interface.Node):
                     node_status = self.tuya_device.status()
                     LOGGER.info("Node Status {}".format(str(node_status)))
                     #LOGGER.info(self.tuya_device(), node_status())
+                    for dict_found in [x for x in devices_list if x["id"] == value['gwId']]:
+                        LOGGER.info("Node Name {}".format(value['name']))
+                        LOGGER.info("Node key {}".format(value['key']))
+                        LOGGER.info("Node id {}".format(value['gwId']))
+                        LOGGER.info("Node ip {}".format(value['ip']))
+                        LOGGER.info("Node Status {}".format(str(node_status)))
 
-                    for i in node_status:  # )xfor i in node_status: gives dps devId)
+                    # for i in node_status:  # )xfor i in node_status: gives dps devId)
                         LOGGER.info(i)
 
                     polling = []
