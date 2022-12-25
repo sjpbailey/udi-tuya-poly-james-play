@@ -18,7 +18,7 @@
     {
       "title": "Tuya: A Node Server for Controlling Tuya Smart Devices",
       "author": "Steven Bailey",
-      "version": "1.1.1",
+      "version": "3.0.1",
       "date": "July 16th, 2021",
       "source": "https://github.com/sjpbailey/udi-tuya-poly-james-play.git",
       "license": "https://github.com/sjpbailey/udi-tuya-poly-james-play/blob/main/LICENSE"
