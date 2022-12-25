@@ -101,7 +101,7 @@ class TuyaController(udi_interface.Node):
                     print("LINE 143 Polling local devices...")
                     for i in node_status:
                         item = {}
-                        name = i['name']
+                        name = i[0]  # ['name']
                         (ip, ver) = scan_results, i['gwId']
                         item['name'] = name
                         item['ip'] = ip
