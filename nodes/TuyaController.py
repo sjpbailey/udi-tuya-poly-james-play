@@ -100,67 +100,6 @@ class TuyaController(udi_interface.Node):
                         LOGGER.info("Node ip {}".format(value['ip']))
                         LOGGER.info("Node Status {}".format(str(node_status)))
 
-                    # for i in node_status:  # )xfor i in node_status: gives dps devId)
-                        LOGGER.info(i)
-
-                    polling = []
-                    print("LINE 143 Polling local devices...")
-                    for i in node_status:
-                        item = {}
-                        name = i[0]  # ['name']
-                        (ip, ver) = scan_results, i['gwId']
-                        item['name'] = name
-                        item['ip'] = ip
-                        item['ver'] = ver
-                        item['id'] = i['id']
-                        item['key'] = i['key']
-                        if (ip == 0):
-                            pass
-                        else:
-                            try:
-                                d = tinytuya.OutletDevice(
-                                    i['id'], ip, i['key'])
-                                if ver == "3.3":
-                                    d.set_version(3.3)
-                                data = d.status()
-                                if 'dps' in data:
-                                    item['dps'] = data
-                                    state = "Off"
-                                    try:
-                                        if '1' in data['dps'] or '20' in data['dps']:
-                                            if '1' in data['dps']:
-                                                if data['dps']['1'] == True:
-                                                    state = "On"
-                                            if '20' in data['dps']:
-                                                if data['dps']['20'] == True:
-                                                    state = "On"
-                                            # print("    %s[%s] - %s%s - %s - DPS: %r" %
-                                            #     (name, ip, state, data['dps']))
-                                        else:
-                                            # print("    %s[%s] - %s%s - DPS: %r" %
-                                            #      (name, ip, data['dps']))
-                                            pass
-                                    except:
-                                        # print("    %s[%s] - %s%s - %sNo Response" %
-                                        #      (name, ip))
-                                        pass
-                                else:
-                                    # print("    %s[%s] - %s%s - %sNo Response" %
-                                    #      (name, ip,))
-                                    pass
-                            except:
-                                # print("    %s[%s] - %s%s - %sNo Response" %
-                                #      (name, ip))
-                                pass
-                        polling.append(item)
-                        # for loop
-
-                        # Save polling data snapsot
-                        current = {'timestamp': time.time(),
-                                   'devices': polling}
-                        output1 = json.dumps(current, indent=4)  # indent=4
-                        LOGGER.info(f"LINE 196 Local Device json {output1}")
-
         """# LOGGER.info(
         #    f"Adding Node: {device_id} - {dict_found['name']}")
         # self.poly.addNode(
