@@ -95,7 +95,7 @@ class TuyaController(udi_interface.Node):
                     LOGGER.info("Node ip {}".format(value['ip']))
                     LOGGER.info("Node Status {}".format(str(node_status)))
 
-                    LOGGER.info(json.dumps(str(node_status)))
+                    LOGGER.info(json.dumps(devices_list, str(node_status)))
 
         """# LOGGER.info(
         #    f"Adding Node: {device_id} - {dict_found['name']}")
