@@ -54,10 +54,6 @@ class TuyaController(udi_interface.Node):
         self.poly.setCustomParamsDoc()
         self.discover()
 
-    # def query(self, command=None):
-    #    LOGGER.info("Query sensor {}".format(self.address))
-        # self.discover()
-
     def discover(self, *args, **kwargs):
         LOGGER.info("Starting Tuya Device Discovery")
         devices_list = json.loads(self.Parameters['devices'])
@@ -70,7 +66,7 @@ class TuyaController(udi_interface.Node):
             ip = value['ip']
             device_id = value['gwId']
             if len(device_id) > 10:
-                device_id = device_id[:10]
+                device_id = device_id  # [:10]
 
             #LOGGER.info(f"Device Scan Device IP: {ip}")
             for dict_found in [x for x in devices_list if x["id"] == value['gwId']]:
@@ -81,18 +77,15 @@ class TuyaController(udi_interface.Node):
                 if device_node is None:
                     LOGGER.info(
                         f"Adding Node: {device_id} - {dict_found['name']}")
-                    #LOGGER.info("Node Name {}".format(value['name']))
-                    #LOGGER.info("Node key {}".format(value['key']))
-                    #LOGGER.info("Node id {}".format(value['gwId']))
-                    #LOGGER.info("Node ip {}".format(value['ip']))
                     # time.sleep(3)
                     self.tuya_device = tinytuya.BulbDevice(
                         value['gwId'], value['ip'], value['key'])
                     self.tuya_device.set_version(3.3)
 
                     # HERE DPS
-                    node_status = tinytuya.BulbDevice(
-                        value['gwId'], value['ip'], value['key'], self.tuya_device.status())
+                    # node_status = tinytuya.BulbDevice(
+                    #    value['gwId'], value['ip'], value['key'], self.tuya_device.status())
+                    node_status = self.tuya_device.status()
                     LOGGER.info("Node Status {}".format(str(node_status)))
                     #LOGGER.info(self.tuya_device(), node_status())
                     # for dict_found in [x for x in devices_list if x["id"] == value['gwId']]:
@@ -101,6 +94,7 @@ class TuyaController(udi_interface.Node):
                     LOGGER.info("Node id {}".format(value['gwId']))
                     LOGGER.info("Node ip {}".format(value['ip']))
                     LOGGER.info("Node Status {}".format(str(node_status)))
+
                     LOGGER.info(json.dumps(str(node_status)))
 
         """# LOGGER.info(
