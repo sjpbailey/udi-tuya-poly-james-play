@@ -61,6 +61,7 @@ class TuyaController(udi_interface.Node):
     def discover(self, *args, **kwargs):
         LOGGER.info("Starting Tuya Device Discovery")
         devices_list = json.loads(self.Parameters['devices'])
+        LOGGER.info("Device List {}".format(devices_list))
 
         LOGGER.info(json.dumps(devices_list))
         scan_results = tinytuya.deviceScan(False, 20)
