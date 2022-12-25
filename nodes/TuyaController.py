@@ -86,7 +86,7 @@ class TuyaController(udi_interface.Node):
                     #LOGGER.info("Node ip {}".format(value['ip']))
                     # time.sleep(3)
                     self.tuya_device = tinytuya.BulbDevice(
-                        value['gwId'], value['ip'], value['key'], self.tuya_device.status())
+                        value['gwId'], value['ip'], value['key'])
                     self.tuya_device.set_version(3.3)
 
                     # HERE DPS
