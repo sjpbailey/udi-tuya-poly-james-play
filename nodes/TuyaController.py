@@ -80,25 +80,25 @@ class TuyaController(udi_interface.Node):
                 if device_node is None:
                     LOGGER.info(
                         f"Adding Node: {device_id} - {dict_found['name']}")
-                    LOGGER.info("Node Name {}".format(value['name']))
-                    LOGGER.info("Node key {}".format(value['key']))
-                    LOGGER.info("Node id {}".format(value['gwId']))
-                    LOGGER.info("Node ip {}".format(value['ip']))
-                    time.sleep(3)
+                    #LOGGER.info("Node Name {}".format(value['name']))
+                    #LOGGER.info("Node key {}".format(value['key']))
+                    #LOGGER.info("Node id {}".format(value['gwId']))
+                    #LOGGER.info("Node ip {}".format(value['ip']))
+                    # time.sleep(3)
                     self.tuya_device = tinytuya.BulbDevice(
-                        value['gwId'], value['ip'], value['key'])
+                        value['gwId'], value['ip'], value['key'], self.tuya_device.status())
                     self.tuya_device.set_version(3.3)
 
                     # HERE DPS
                     node_status = self.tuya_device.status()
-                    LOGGER.info("Node Status {}".format(str(node_status)))
+                    #LOGGER.info("Node Status {}".format(str(node_status)))
                     #LOGGER.info(self.tuya_device(), node_status())
-                    for dict_found in [x for x in devices_list if x["id"] == value['gwId']]:
-                        LOGGER.info("Node Name {}".format(value['name']))
-                        LOGGER.info("Node key {}".format(value['key']))
-                        LOGGER.info("Node id {}".format(value['gwId']))
-                        LOGGER.info("Node ip {}".format(value['ip']))
-                        LOGGER.info("Node Status {}".format(str(node_status)))
+                    # for dict_found in [x for x in devices_list if x["id"] == value['gwId']]:
+                    LOGGER.info("Node Name {}".format(value['name']))
+                    LOGGER.info("Node key {}".format(value['key']))
+                    LOGGER.info("Node id {}".format(value['gwId']))
+                    LOGGER.info("Node ip {}".format(value['ip']))
+                    LOGGER.info("Node Status {}".format(str(node_status)))
 
         """# LOGGER.info(
         #    f"Adding Node: {device_id} - {dict_found['name']}")
