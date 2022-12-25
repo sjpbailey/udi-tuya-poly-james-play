@@ -92,7 +92,7 @@ class TuyaController(udi_interface.Node):
                     # HERE DPS
                     node_status = tinytuya.BulbDevice(
                         value['gwId'], value['ip'], value['key'], self.tuya_device.status())
-                    #LOGGER.info("Node Status {}".format(str(node_status)))
+                    LOGGER.info("Node Status {}".format(str(node_status)))
                     #LOGGER.info(self.tuya_device(), node_status())
                     # for dict_found in [x for x in devices_list if x["id"] == value['gwId']]:
                     LOGGER.info("Node Name {}".format(value['name']))
